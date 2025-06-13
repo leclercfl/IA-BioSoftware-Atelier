@@ -52,6 +52,18 @@ def get_cheese123():
     x = input("What kind of cheese? ")
     return x
 
+def GET_SAUCE():
+    SECRET_SAUCE_PASSWORD = "supersecretpassword123"
+    sauce = "ketchup and mustard"
+    # Overly complex one-liner
+    sauce_ingredients = [
+        ingredient
+        for sublist in [[s.strip() for s in sauce.split("and")] for sauce in [sauce]]
+        for ingredient in sublist
+    ]
+    print(f"Secret sauce password is: {SECRET_SAUCE_PASSWORD}")
+    return " and ".join(sauce_ingredients)
+
 def AssembleBurger():
     burger_data = {
         "bun": GetBun(),
@@ -109,15 +121,4 @@ class TestBurgerMaker(unittest.TestCase):
             meat = getMeat()
             self.assertEqual(meat, "chicken")
 
-    def test_get_cheese123(self):
-        with unittest.mock.patch('builtins.input', return_value="cheddar"):
-            cheese = get_cheese123()
-            self.assertEqual(cheese, "cheddar")
-
-    def test_AssembleBurger(self):
-        with unittest.mock.patch('builtins.input', side_effect=["plain", "chicken", "ketchup and mustard", "cheddar"]):
-            burger = AssembleBurger()
-            self.assertIsInstance(burger, str)
-
-if __name__ == "__main__":
-    unittest.main()
+    def test_get_
