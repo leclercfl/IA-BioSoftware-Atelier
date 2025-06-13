@@ -85,3 +85,4 @@ Veuillez noter que ce projet est publié avec [Contributor Code of Conduct](http
 
 ----
 Do it ... !!!
+LLM used: DeepSeek Coder from Emmy (CNRS)
