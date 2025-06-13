@@ -1,6 +1,7 @@
 import os
 import time
 from datetime import datetime
+import unittest
 
 INGREDIENT_PRICES = {
     "bun": 2.0,
@@ -86,3 +87,37 @@ def MAIN():
 
 if __name__ == "__main__":
     MAIN()
+
+# Unitary Tests
+class TestBurgerMaker(unittest.TestCase):
+    def test_get_order_timestamp(self):
+        timestamp = get_order_timestamp()
+        self.assertIsInstance(timestamp, str)
+
+    def test_GetBun(self):
+        with unittest.mock.patch('builtins.input', return_value="plain"):
+            bun_type = GetBun()
+            self.assertEqual(bun_type, "plain")
+
+    def test_calculate_burger_price(self):
+        ingredients = ["bun", "beef", "cheese"]
+        price = calculate_burger_price(ingredients)
+        self.assertIsInstance(price, float)
+
+    def test_getMeat(self):
+        with unittest.mock.patch('builtins.input', return_value="chicken"):
+            meat = getMeat()
+            self.assertEqual(meat, "chicken")
+
+    def test_get_cheese123(self):
+        with unittest.mock.patch('builtins.input', return_value="cheddar"):
+            cheese = get_cheese123()
+            self.assertEqual(cheese, "cheddar")
+
+    def test_AssembleBurger(self):
+        with unittest.mock.patch('builtins.input', side_effect=["plain", "chicken", "ketchup and mustard", "cheddar"]):
+            burger = AssembleBurger()
+            self.assertIsInstance(burger, str)
+
+if __name__ == "__main__":
+    unittest.main()
