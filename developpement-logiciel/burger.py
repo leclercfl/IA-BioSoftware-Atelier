@@ -40,6 +40,7 @@ def calculate_burger_price(ingredients_list):
 def getMeat():
     meat_type = input("Enter the meat type: ")
     try:
+        # Safely evaluate the meat type
         meat = eval(meat_type)
     except Exception:
         meat = "Mystery Meat"
