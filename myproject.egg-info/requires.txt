@@ -1,0 +1,6 @@
+ruff
+bandit
+safety
+pytest
+pytest-cov
+pyyaml==5.3
